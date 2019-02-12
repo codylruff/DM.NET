@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM_Lib", "DM_Lib\DM_Lib.csproj", "{5EE810ED-8014-4F82-83D0-6761A6C027F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM_CLI", "DM_CLI\DM_CLI.csproj", "{7890E7B4-911D-466D-86AF-F58843C528AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EE810ED-8014-4F82-83D0-6761A6C027F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE810ED-8014-4F82-83D0-6761A6C027F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE810ED-8014-4F82-83D0-6761A6C027F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE810ED-8014-4F82-83D0-6761A6C027F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7890E7B4-911D-466D-86AF-F58843C528AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7890E7B4-911D-466D-86AF-F58843C528AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7890E7B4-911D-466D-86AF-F58843C528AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7890E7B4-911D-466D-86AF-F58843C528AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {588289B0-0A64-44B6-88C3-124E890FEF99}
+	EndGlobalSection
+EndGlobal
