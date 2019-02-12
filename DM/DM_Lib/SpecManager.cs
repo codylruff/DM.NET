@@ -48,7 +48,7 @@ namespace DM_Lib
         public static ISpec GetSpecification(string material_id)
         {
             // Call database
-            string json_text = DataAccess.GetSpecJson(material_id);
+            string json_text = DataAccess.GetSpecJson(material_id, "standard_specifications");
             // return an ISpec object for manipulation by spec manager
             return DeserializeSpecification(json_text);
         }

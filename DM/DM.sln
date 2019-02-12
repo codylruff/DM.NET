@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM_Lib", "DM_Lib\DM_Lib.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DM_CLI", "DM_CLI\DM_CLI.csproj", "{7890E7B4-911D-466D-86AF-F58843C528AF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{401F6640-6106-4050-8E7D-39387C0A7B86}"
+	ProjectSection(SolutionItems) = preProject
+		SAATI_Spec_Manager.db3 = SAATI_Spec_Manager.db3
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

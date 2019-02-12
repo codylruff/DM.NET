@@ -15,7 +15,7 @@ namespace DM_CLI
             Console.WriteLine("Enter a material number and press enter . . .");
             string material_id = Console.ReadLine();
             var spec = SpecManager.GetSpecification(material_id);
-            Console.WriteLine(spec.ToString() + "\nPress any key to exit . . .");
+            Console.WriteLine(SpecManager.GetPrintableSpecification(spec) + "\nPress any key to exit . . .");
             Console.ReadLine();
         }
     }
