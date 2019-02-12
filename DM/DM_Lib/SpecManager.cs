@@ -10,32 +10,43 @@ namespace DM_Lib
     public class SpecManager
     {
         private SpecsCollection Specs { get; set; }
+        public List<string> MaterialsList { get; set; }
 
         public SpecManager()
         {
             Specs = new SpecsCollection();
+            PopulateMaterialsList();
         }
 
-        public void PrintSpecification(ISpec spec)
+        public void CreateNewMaterial(string material_id, string spec_type)
         {
-            string table_header = spec.IsDefault ? "Standard Specification" : spec.TimeStamp.ToString();
-            Console.WriteLine(GetPrintableSpecification(spec) + "\nPress any key to exit . . .");
-            Console.ReadLine();
+            throw new NotImplementedException();
         }
-        public ISpec GetSpecification(string material_id, bool is_default)
+
+        public void PrintSpecification()
         {
-            string table_name = (is_default ? "standard_specifications" : "modified_specifications");
-            var record = DataAccess.GetSpecRecord(material_id, table_name);
-            var spec = Factory.CreateSpecFromRecord(record);
-            if (is_default)
+            Console.WriteLine("Standard Specification : \n{0}", Specs.DefaultSpec.ToString());
+            foreach(ISpec spec in Specs)
             {
-                Specs.DefaultSpec = spec;
-            }else
-            {
-                Specs.Add(spec);
+                Console.WriteLine("Recent Specifications : {0} \n{1}", spec.TimeStamp.ToString(), spec.ToString());
+                Console.WriteLine(" - Next Spec - ");
+                Console.ReadLine();
             }
-            spec.IsDefault = is_default;
-            return spec;
+        }
+        
+        public int LoadSpecification(string material_id)
+        {
+            Specs.DefaultSpec = GetDefaultSpec(material_id);
+            Console.WriteLine(Specs.DefaultSpec.ToString());
+            if (Specs.DefaultSpec == null) return -1;
+            List<SpecRecord> records = DataAccess.GetSpecRecords(material_id, "modified_specifications");
+
+            foreach (var record in records)
+            {
+                Specs.Add(Factory.CreateSpecFromRecord(record));
+            }
+
+            return 0;
         }
 
         public void CommitSpecification(ISpec spec)
@@ -43,9 +54,22 @@ namespace DM_Lib
             DataAccess.PushSpec(spec);
         }
 
-        public string GetPrintableSpecification(ISpec spec)
+        private string GetPrintableSpecification(ISpec spec)
         {   
             return spec.ToString();
+        }
+
+        private ISpec GetDefaultSpec(string material_id)
+        {
+            SpecRecord record = DataAccess.SelectSingleRecord("standard_specifications", "Material_Id", material_id);
+            return Factory.CreateSpecFromRecord(record);
+        }
+
+        private void PopulateMaterialsList()
+        {
+            MaterialsList = new List<string>();
+            MaterialsList.Add("warping");
+            MaterialsList.Add("style");
         }
     }
 }

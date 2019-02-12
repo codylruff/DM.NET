@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,26 +8,37 @@ using System.Threading.Tasks;
 
 namespace DM_Lib
 {
-    public class SpecsCollection
+    public class SpecsCollection : IEnumerable
     {
-        private List<ISpec> specs_collection;
-        public ISpec DefaultSpec { get; set; }
-        public string SpecType { get; set; }
+        private List<ISpec> _specsCollection;
+        private ISpec _defaultSpec;
+        public string SpecType { get; private set; }
+        // For easy access to the default spec
+        // default spec can only be written from data access
+        // TODO: This is broken ***
+        public ISpec DefaultSpec 
+        {
+            get { return _defaultSpec; }
+            set
+            {
+                _defaultSpec = value;
+               
+            }
+        }
 
         public SpecsCollection()
         {
-            specs_collection = new List<ISpec>();
-
+            _specsCollection = new List<ISpec>();
         }
 
         public void Add(ISpec spec)
         {
-            specs_collection.Add(spec);
+            _specsCollection.Add(spec);
         }
-
+        
         public ISpec SpecByMaterialId(string material_id)
         {
-            foreach (ISpec spec in specs_collection)
+            foreach (ISpec spec in _specsCollection)
             {
                 if (spec.MaterialId == material_id)
                     return spec;
@@ -34,6 +46,12 @@ namespace DM_Lib
             // returns null if no spec is found.
             Debug.Print("No spec found with this id");
             return null;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            // Return the array object's IEnumerator.
+            return _specsCollection.GetEnumerator();
         }
     }
 }

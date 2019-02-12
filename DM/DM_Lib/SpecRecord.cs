@@ -12,9 +12,24 @@ namespace DM_Lib
     {
         public string JsonText { get; private set; }
         public string SpecType { get; private set; }
-        public string TimeStamp { get; private set; }
+        public DateTime TimeStamp { get; private set; }
+        public string TimeStampString { get; private set; }
         public string MaterialId { get; private set; }
         public int Id { get; private set; }
+
+        public SpecRecord()
+        {
+            // Default constructor
+        }
+
+        public SpecRecord(List<string> fields)
+        {
+            JsonText = fields[0];
+            SpecType = fields[1];
+            MaterialId = fields[2];
+            TimeStampString = fields[3];
+            Id = Convert.ToInt32(fields[3]);
+        }
 
         public SpecRecord(SQLiteDataReader reader)
         {
@@ -31,7 +46,7 @@ namespace DM_Lib
         {
             JsonText = json_text;
             SpecType = spec.SpecType;
-            TimeStamp = Convert.ToString(DateTime.Now);
+            TimeStamp = DateTime.Now;
             MaterialId = spec.MaterialId;
         }
     }

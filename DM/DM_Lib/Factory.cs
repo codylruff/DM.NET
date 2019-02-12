@@ -11,6 +11,12 @@ namespace DM_Lib
 {
     public static class Factory
     {
+        public static SpecRecord CreateSpecRecord()
+        {
+            var record = new SpecRecord();
+            return record;
+        }
+
         public static SpecRecord CreateRecordFromSpec(ISpec spec)
         {   
             string json_text = JsonConvert.SerializeObject(spec);
@@ -21,6 +27,12 @@ namespace DM_Lib
         public static SpecRecord CreateSpecRecordFromReader(SQLiteDataReader reader)
         {
             var record = new SpecRecord(reader);
+            return record;
+        }
+
+        public static SpecRecord CreateSpecRecordFromList(List<string> list)
+        {
+            var record = new SpecRecord(list);
             return record;
         }
 
