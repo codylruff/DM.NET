@@ -22,7 +22,9 @@ namespace DM_Lib
     public interface ISpec
     {
         string MaterialId { get; set; }
+        DateTime TimeStamp { get; set; }
         string SpecType { get; }
+        bool IsDefault { get; set; }
         ISpec ParentSpec { get; set; }
 
         void SetDefaultProperties();

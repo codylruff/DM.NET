@@ -33,6 +33,8 @@ namespace DM_Lib
         public int ReedShape { get; set; }
         public float YarnLeaseFeed { get; set; }
         public string YarnSupplier { get; set; }
+        public DateTime TimeStamp { get; set; }
+        public bool IsDefault { get; set; }
         public string MaterialId { get; set; }
         public string SpecType {
             get

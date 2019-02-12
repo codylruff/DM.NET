@@ -9,30 +9,26 @@ namespace DM_Lib
 {
     public static class DataAccess
     {
-        public static string GetSpecJson(string material_id, string table_name)
+        public static SpecRecord GetSpecRecord(string material_id, string table_name)
         {
             var sql = new StringBuilder();
-            sql.AppendFormat("SELECT Json_Text FROM {0} WHERE Material_Id = '{1}'", table_name, material_id);
-            var data = ExecuteSqlSelect(sql.ToString());
-            return data[0];
+            sql.AppendFormat("SELECT * FROM {0} WHERE Material_Id = '{1}'", table_name, material_id);
+            var record = Factory.CreateSpecRecordFromReader(ExecuteSqlSelect(sql.ToString()));
+            return record;
         }
 
-        public static void PushSpec(string material_id, string json_text, string spec_type)
+        public static void PushSpec(ISpec spec)
         {
-            throw new NotImplementedException();
+            var record = Factory.CreateRecordFromSpec(spec);
         }
 
-        public static List<string> ExecuteSqlSelect(string sql)
+        public static SQLiteDataReader ExecuteSqlSelect(string sql)
         {
-            var data = new List<string>();
             var dbConnection = new SQLiteConnection(
                 @"Data Source=C:\Users\codyl\Source\Repos\DM.NET\DM\SAATI_Spec_Manager.db3;Version=3;");
             dbConnection.Open();        
             SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-                data.Add((string)(reader["json_text"]));
-            return data;
+            return command.ExecuteReader();
         }
 
         public static void CreateSqliteDatabase(string db_name)

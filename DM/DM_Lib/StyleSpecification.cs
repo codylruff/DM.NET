@@ -32,6 +32,8 @@ namespace DM_Lib
         public string YarnColor { get; set; }
         public string Notes { get; set; }
         public string YarnMerge { get; set; }
+        public DateTime TimeStamp { get; set; }
+        public bool IsDefault { get; set; }
         public string MaterialId { get; set; }
         public string SpecType
         {
@@ -53,22 +55,22 @@ namespace DM_Lib
         {
             var builder = new StringBuilder();
      
-            builder.AppendFormat("Dtex : {0}", Dtex);
-            builder.AppendFormat("Style : {0}", Style);
-            builder.AppendFormat("Weave Type : {0}", WeaveType);
-            builder.AppendFormat("Yarn Type : {0}", YarnType);
-            builder.AppendFormat("Denier : {0} ", Denier);
-            builder.AppendFormat("Warp Count : {0} ({1} to {2})", MeanWarpCount, MinWarpCount, MaxWarpCount);
-            builder.AppendFormat("Fill Count : {0} ({1} to {2})", MeanFillCount, MinFillCount, MaxFillCount);
-            builder.AppendFormat("Dry Weight : {0} ({1} to {2})", MeanDryWeight, MinDryWeight, MaxDryWeight);
-            builder.AppendFormat("Conditioned Weight : {0} ({1} to {2})", MeanConditionedWeight, MinConditionedWeight, MaxConditionedWeight);
-            builder.AppendFormat("Yarn Finish : {0}", YarnFinish);
-            builder.AppendFormat("Yarn Code : {0}", YarnCode);
-            builder.AppendFormat("Moisture Regain : {0}", MoistureRegain);
-            builder.AppendFormat("Twisting : {0}", Twisting);
-            builder.AppendFormat("Yarn Color : {0}", YarnColor);
-            builder.AppendFormat("Notes : {0}", Notes);
-            builder.AppendFormat("Merge : {0}", YarnMerge);
+            builder.AppendFormat("Dtex : {0}\n", Dtex);
+            builder.AppendFormat("Style : {0}\n", Style);
+            builder.AppendFormat("Weave Type : {0}\n", WeaveType);
+            builder.AppendFormat("Yarn Type : {0}\n", YarnType);
+            builder.AppendFormat("Denier : {0}\n", Denier);
+            builder.AppendFormat("Warp Count : {0} ({1} to {2})\n", MeanWarpCount, MinWarpCount, MaxWarpCount);
+            builder.AppendFormat("Fill Count : {0} ({1} to {2})\n", MeanFillCount, MinFillCount, MaxFillCount);
+            builder.AppendFormat("Dry Weight : {0} ({1} to {2})\n", MeanDryWeight, MinDryWeight, MaxDryWeight);
+            builder.AppendFormat("Conditioned Weight : {0} ({1} to {2})\n", MeanConditionedWeight, MinConditionedWeight, MaxConditionedWeight);
+            builder.AppendFormat("Yarn Finish : {0}\n", YarnFinish);
+            builder.AppendFormat("Yarn Code : {0}\n", YarnCode);
+            builder.AppendFormat("Moisture Regain : {0}\n", MoistureRegain);
+            builder.AppendFormat("Twisting : {0}\n", Twisting);
+            builder.AppendFormat("Yarn Color : {0}\n", YarnColor);
+            builder.AppendFormat("Notes : {0}\n", Notes);
+            builder.AppendFormat("Merge : {0}\n", YarnMerge);
 
             return builder.ToString();
         }

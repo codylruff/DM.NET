@@ -11,11 +11,15 @@ namespace DM_CLI
     {
         static void Main(string[] args)
         {
+            SpecManager manager = new SpecManager();
+            
             // Create a spec
             Console.WriteLine("Enter a material number and press enter . . .");
             string material_id = Console.ReadLine();
-            var spec = SpecManager.GetSpecification(material_id);
-            Console.WriteLine(SpecManager.GetPrintableSpecification(spec) + "\nPress any key to exit . . .");
+            var standard_spec = manager.GetSpecification(material_id, true);
+            var current_spec = manager.GetSpecification(material_id, false);
+            Console.WriteLine(manager.GetPrintableSpecification(standard_spec));
+            Console.WriteLine(manager.GetPrintableSpecification(current_spec) + "\nPress any key to exit . . .");
             Console.ReadLine();
         }
     }

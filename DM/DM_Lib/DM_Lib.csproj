@@ -58,6 +58,8 @@
     <Compile Include="ISpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecManager.cs" />
+    <Compile Include="SpecRecord.cs" />
+    <Compile Include="SpecsCollection.cs" />
     <Compile Include="StyleSpecification.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="WarpingSpecification.cs" />
