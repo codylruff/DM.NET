@@ -51,7 +51,13 @@ namespace DM_Lib
             var spec = new WarpingSpecification(json_text);
             return spec;
         }
-        
+
+        public static ISpec CreateCopyOfSpec(ISpec spec)
+        {
+            var copy = spec;
+            return copy;
+        }
+
         private static ISpec DeserializeSpecification(SpecRecord record)
         {
             switch (record.SpecType)

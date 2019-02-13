@@ -37,6 +37,7 @@ namespace DM_Lib
         public int LoadSpecification(string material_id)
         {
             Specs.DefaultSpec = GetDefaultSpec(material_id);
+            Specs.ChangableSpec = Factory.CreateCopyOfSpec(Specs.DefaultSpec);
             Console.WriteLine(Specs.DefaultSpec.ToString());
             if (Specs.DefaultSpec == null) return -1;
             List<SpecRecord> records = DataAccess.GetSpecRecords(material_id, "modified_specifications");

@@ -11,20 +11,13 @@ namespace DM_Lib
     public class SpecsCollection : IEnumerable
     {
         private List<ISpec> _specsCollection;
-        private ISpec _defaultSpec;
+
         public string SpecType { get; private set; }
         // For easy access to the default spec
         // default spec can only be written from data access
         // TODO: This is broken ***
-        public ISpec DefaultSpec 
-        {
-            get { return _defaultSpec; }
-            set
-            {
-                _defaultSpec = value;
-               
-            }
-        }
+        public ISpec DefaultSpec { get; set; }
+        public ISpec ChangableSpec { get; set; }
 
         public SpecsCollection()
         {
